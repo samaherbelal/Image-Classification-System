@@ -13,7 +13,7 @@ model = build_model(input_shape=input_shape, num_classes=num_classes)
 #تعلم النموذج كيف يتعلم
 model.compile(
     optimizer="adam",#تحديث أوزان النموذج أثناء التدريب
-    loss="categorical_crossentropy",#تقول كم كان النموذج مخطئا في توقعه
+    loss="sparse_categorical_crossentropy",#تقول كم كان النموذج مخطئا في توقعه
     metrics=["accuracy"],# للجودة
 )
 
