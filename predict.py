@@ -6,7 +6,8 @@ import tensorflow as tf
 from data_preprocessing import IMAGE_SIZE, prepare_datasets
 
 
-def load_trained_model(model_path="trained_model.keras"):
+
+def load_trained_model(model_path= "trained_model.h5"):
     """
     هنا بنحمل موديل الـ CNN اللي دربناه وحفظناه قبل كدا[cite: 5]
     """
@@ -42,7 +43,7 @@ def preprocess_single_image(image_path):
     return img_batch
 
 
-def predict_image(image_path, model_path="trained_model.keras"):
+def predict_image(image_path, model_path="trained_model.h5"):
     """
     الدالة الرئيسية اللي بتتوقع الفئة وبتحسب الموديل واثق من إجابته بنسبة كام[cite: 4]
     """
@@ -73,10 +74,10 @@ def predict_image(image_path, model_path="trained_model.keras"):
 
 if __name__ == "__main__":
     # حط هنا مسار أي صورة عايز تجرب عليها للتنبؤ
-    test_image_path = r"C:\Users\Lenovo\Downloads\OBADY\obady project\Image-Classification-System\dataset\Military vehicles\test\tank\sample.jpg"
+    test_image_path = r"C:\Users\USER\jupyter project\ML\Deep Learning\Image Classification System\Military vehicles\test\Armored personnel carriers\Armored personnel carriers_0_2.jpeg"
 
     # اختار الموديل الأصلي أو الموديل بعد الـ Fine-Tuning
-    model_to_use = "trained_model.keras"  # أو "fine_tuned_model.keras"
+    model_to_use = "trained_model.h5"  # أو "fine_tuned_model.keras"
 
     try:
         predict_image(test_image_path, model_path=model_to_use)

@@ -29,7 +29,7 @@ history = model.fit(
     epochs=EPOCHS,
 )
 
-model.save("trained_model.keras")
+model.save("trained_model.h5")
 
 
-print("Training complete. Model saved to 'trained_model.keras'.")
+print("Training complete. Model saved to 'trained_model.h5'.")

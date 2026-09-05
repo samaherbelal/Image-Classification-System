@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import classification_report, confusion_matrix
@@ -7,11 +8,16 @@ import seaborn as sns
 from data_preprocessing import prepare_datasets
 
 def evaluate_and_fine_tune():
-    _, validation_data, test_data, class_names = prepare_datasets()
+    train_data, validation_data, test_data, class_names = prepare_datasets()
 
     # تحميل النموذج الذي تم حفظه عند تشغيل
-    print("\n--- جاري تحميل النموذج المدرب (trained_model.keras) ---")
-    model = tf.keras.models.load_model("trained_model.keras")
+    print("\n--- جاري تحميل النموذج المدرب (trained_model.h5) ---")
+
+    model_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "trained_model.h5"
+    )
+    model = tf.keras.models.load_model(model_path)
 
     # حساب التنبؤات على مجموعة الاختبار test_data
     print("\n--- جاري تقييم النموذج على مجموعة الاختبار (Test Set) ---")
